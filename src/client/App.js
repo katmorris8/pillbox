@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './app.css';
+import AddPillButton from './components/AddPillButton';
 
 export default class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>welcome to pillbox</h1>
+        <AddPillButton />
       </div>
     );
   }
