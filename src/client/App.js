@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
 import AddPillButton from './components/AddPillButton';
+import PillboxButton from './components/PillboxButton/PillboxButton';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class App extends Component {
       <div>
         <h1>welcome to pillbox</h1>
         <AddPillButton />
+        <PillboxButton />
       </div>
     );
   }
