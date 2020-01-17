@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './style.css';
+import ButtonMain from '../ButtonMain/ButtonMain';
 
 export default class AddPillButton extends Component {
+  constructor(props) {
+    super(props);
+    this.btnText = '+';
+  }
+
   render() {
     return (
       <div>
-        <button className="button">+</button>
+        <ButtonMain text={this.btnText} />
         <p>load my pillbox with a new Rx</p>
       </div>
     )
