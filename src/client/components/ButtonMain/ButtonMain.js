@@ -5,8 +5,8 @@ export default class ButtonMain extends Component {
   render() {
     return (
       <div>
-        <button className="button">{this.props.text}</button>
+        <button type="button" className="button">{this.props.text}</button>
       </div>
-    )
+    );
   }
 }

@@ -14,6 +14,6 @@ export default class AddPillButton extends Component {
         <ButtonMain text={this.btnText} />
         <p>load my pillbox with a new Rx</p>
       </div>
-    )
+    );
   }
 }
