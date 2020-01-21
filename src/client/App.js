@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './app.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import AddPillButton from './components/AddPillButton';
-import PillboxButton from './components/PillboxButton/PillboxButton';
-import MyPillbox from './components/MyPillbox/MyPillbox';
+import WelcomePage from './components/WelcomePage/WelcomePage';
+// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+// import AddPillButton from './components/AddPillButton';
+// import PillboxButton from './components/PillboxButton/PillboxButton';
+// import MyPillbox from './components/MyPillbox/MyPillbox';
 
 export default class App extends Component {
   constructor(props) {
@@ -22,7 +23,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>welcome to pillbox</h1>
+        <WelcomePage />
+        {/* <h1>welcome to pillbox</h1>
         <Router>
           <AddPillButton />
           <Link to="/mypillbox">
@@ -31,7 +33,7 @@ export default class App extends Component {
           <Switch>
             <Route path="/mypillbox" exact render={props => <MyPillbox {...props} />} />
           </Switch>
-        </Router>
+        </Router> */}
       </div>
     );
   }
