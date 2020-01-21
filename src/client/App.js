@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './app.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AddPillButton from './components/AddPillButton';
 import PillboxButton from './components/PillboxButton/PillboxButton';
 import MyPillbox from './components/MyPillbox/MyPillbox';
@@ -28,7 +28,9 @@ export default class App extends Component {
           <Link to="/mypillbox">
             <PillboxButton />
           </Link>
-          <Route path="/mypillbox" exact render={props => <MyPillbox {...props} />} />
+          <Switch>
+            <Route path="/mypillbox" exact render={props => <MyPillbox {...props} />} />
+          </Switch>
         </Router>
       </div>
     );
