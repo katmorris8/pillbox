@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './app.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 import WelcomePage from './components/WelcomePage/WelcomePage';
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 // import AddPillButton from './components/AddPillButton';
 // import PillboxButton from './components/PillboxButton/PillboxButton';
-// import MyPillbox from './components/MyPillbox/MyPillbox';
+import MyPillbox from './components/MyPillbox/MyPillbox';
 
 export default class App extends Component {
   constructor(props) {
@@ -22,19 +27,21 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <WelcomePage />
-        {/* <h1>welcome to pillbox</h1>
-        <Router>
-          <AddPillButton />
-          <Link to="/mypillbox">
-            <PillboxButton />
-          </Link>
+      <Router>
+        <div>
+          <WelcomePage />
+          <nav className="nav-bar">
+            <Link to="/mypillbox">pill</Link>
+          </nav>
+
           <Switch>
-            <Route path="/mypillbox" exact render={props => <MyPillbox {...props} />} />
+            {/* <Route path="/mypillbox" exact render={props => <MyPillbox {...props} />} /> */}
+            <Route path="/mypillbox">
+              <MyPillbox />
+            </Route>
           </Switch>
-        </Router> */}
-      </div>
+        </div>
+      </Router>
     );
   }
 }
