@@ -4,7 +4,25 @@ h1 {
 
 body {
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
   font-family: Helvetica, sans-serif;
   font-size: 16px;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #cccccc;
+  padding-top: 1rem;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #333333;
 }
