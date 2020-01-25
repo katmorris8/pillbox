@@ -7,8 +7,6 @@ import {
   Link
 } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage/WelcomePage';
-// import AddPillButton from './components/AddPillButton';
-// import PillboxButton from './components/PillboxButton/PillboxButton';
 import MyPillbox from './components/MyPillbox/MyPillbox';
 
 export default class App extends Component {
@@ -31,11 +29,11 @@ export default class App extends Component {
         <div>
           <WelcomePage />
           <nav className="nav-bar">
+            <Link to="/newpill">+</Link>
             <Link to="/mypillbox">pill</Link>
           </nav>
 
           <Switch>
-            {/* <Route path="/mypillbox" exact render={props => <MyPillbox {...props} />} /> */}
             <Route path="/mypillbox">
               <MyPillbox />
             </Route>
