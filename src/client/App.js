@@ -9,6 +9,7 @@ import {
 // import WelcomePage from './components/WelcomePage/WelcomePage';
 import MyPillbox from './components/MyPillbox/MyPillbox';
 import { Logo } from './components/Logo/Logo';
+import PillSearch from './components/PillSearch/PillSearch';
 
 export default class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ export default class App extends Component {
         <div>
           {/* <WelcomePage /> */}
           <Logo />
+          <PillSearch />
           <nav className="nav-bar">
             <Link to="/newpill">+</Link>
             <Link to="/mypillbox">pill</Link>
