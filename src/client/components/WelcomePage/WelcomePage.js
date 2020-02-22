@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import AddPillButton from '../AddPillButton';
 import PillboxButton from '../PillboxButton/PillboxButton';
+import { Logo } from '../Logo/Logo';
 
 export default class WelcomePage extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export default class WelcomePage extends Component {
   render() {
     return (
       <div>
+        <Logo />
         <h1>welcome to pillbox</h1>
         <AddPillButton />
         <PillboxButton />
