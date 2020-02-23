@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './style.css';
 
 export default class ButtonMain extends Component {
+  constructor(props) {
+    super(props);
+    this.state = null;
+  }
+
   render() {
     return (
       <div>
