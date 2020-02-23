@@ -11,7 +11,7 @@ export default class AddPillButton extends Component {
   render() {
     return (
       <div>
-        <ButtonMain text={this.btnText} />
+        <ButtonMain text={this.btnText} onClick={this.props.addPillClick} />
         <p>load my pillbox with a new Rx</p>
       </div>
     );

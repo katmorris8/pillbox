@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import AddPillButton from '../AddPillButton';
+import AddPillButton from '../AddPillButton/AddPillButton';
 import PillboxButton from '../PillboxButton/PillboxButton';
 
 export default class WelcomePage extends Component {
@@ -13,8 +13,8 @@ export default class WelcomePage extends Component {
     return (
       <div>
         <h1>welcome to pillbox</h1>
-        <AddPillButton />
-        <PillboxButton />
+        <AddPillButton addPillClick={this.props.addPillClick} />
+        <PillboxButton viewPillboxClick={this.props.viewPillboxClick} />
       </div>
     );
   }
