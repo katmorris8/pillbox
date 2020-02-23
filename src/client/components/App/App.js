@@ -24,14 +24,20 @@ export default class App extends Component {
 
   handleAddPillClick = (e) => {
     e.preventDefault();
-    console.log('hiii');
+    console.log('add pill!');
     // this.props.history.push('/newpill');
+    this.setState({
+      page: 'addPill'
+    });
   }
 
   handlePillboxClick = (e) => {
     e.preventDefault();
-    console.log('hello!');
+    console.log('see pillbox!');
     // this.props.history.push('/mypillbox');
+    this.setState({
+      page: 'pillbox'
+    });
   }
 
   render() {
