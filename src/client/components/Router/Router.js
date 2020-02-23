@@ -12,8 +12,8 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={WelcomePage} />
-      <Route exact path="/newpill" component={PillSearch} />
-      <Route exact path="/mypillbox" component={MyPillbox} />
+      <Route path="/newpill" component={PillSearch} />
+      <Route path="/mypillbox" component={MyPillbox} />
     </Switch>
   </BrowserRouter>
 );
