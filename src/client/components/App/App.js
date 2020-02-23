@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import './style.css';
-// import WelcomePage from './components/WelcomePage/WelcomePage';
-// import MyPillbox from './components/MyPillbox/MyPillbox';
 import { Logo } from '../Logo/Logo';
-// import PillSearch from './components/PillSearch/PillSearch';
+import WelcomePage from '../WelcomePage/WelcomePage';
+import PillSearch from '../PillSearch/PillSearch';
+import MyPillbox from '../MyPillbox/MyPillbox';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = null;
+    this.state = {
+      page: 'welcome'
+      // page: 'addPill'
+      // page: 'pillbox'
+    };
   }
-  // state = { username: null };
 
   // componentDidMount() {
   //   fetch('/api/getUsername')
@@ -19,9 +22,43 @@ export default class App extends Component {
   // }
   // remove username
 
+  handleAddPillClick = (e) => {
+    e.preventDefault();
+    console.log('hiii');
+    // this.props.history.push('/newpill');
+  }
+
+  handlePillboxClick = (e) => {
+    e.preventDefault();
+    console.log('hello!');
+    // this.props.history.push('/mypillbox');
+  }
+
   render() {
     return (
-      <Logo />
+      <div>
+        <Logo />
+        {this.state.page === 'welcome' && (
+          <div>
+            <WelcomePage
+              addPillClick={this.handleAddPillClick}
+              viewPillboxClick={this.handlePillboxClick}
+            />
+          </div>
+        )}
+        {this.state.page === 'addPill' && (
+          <div>
+            <PillSearch />
+          </div>
+        )}
+        {this.state.page === 'pillbox' && (
+          <div>
+            <MyPillbox
+              addPillClick={this.handleAddPillClick}
+            />
+          </div>
+        )}
+      </div>
     );
   }
 }
