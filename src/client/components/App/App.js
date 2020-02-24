@@ -9,9 +9,10 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'welcome'
-      // page: 'addPill'
-      // page: 'pillbox'
+      // page: 'welcome',
+      page: 'addPill',
+      // page: 'pillbox',
+      pills: {},
     };
   }
 
@@ -40,6 +41,17 @@ export default class App extends Component {
     });
   }
 
+  // this.setState({prevState => {}})
+  getPillName = (e) => {
+    e.preventDefault();
+    console.log('new pill submitted!');
+    e.currentTarget.reset();
+  }
+
+  pillName = (e) => {
+    console.log(e.target.value);
+  }
+
   render() {
     return (
       <div>
@@ -54,7 +66,10 @@ export default class App extends Component {
         )}
         {this.state.page === 'addPill' && (
           <div>
-            <PillSearch />
+            <PillSearch
+              getPillName={this.getPillName}
+              pillName={this.pillName}
+            />
           </div>
         )}
         {this.state.page === 'pillbox' && (
