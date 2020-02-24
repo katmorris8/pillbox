@@ -3,27 +3,18 @@ import React, { Component } from 'react';
 export default class PillSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = null
-  }
-
-  handleChange = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // const name = 
-    // this.setState({
-    //   name:
-    // });
+    this.state = null;
   }
 
   render() {
     return (
       <div>
-        <form>
-          <input type="text" placeholder="Pill name..." onChange={this.handleChange} />
+        <form onSubmit={this.props.getPillName}>
+          <input
+            type="text"
+            placeholder="Pill name..."
+            onChange={this.props.pillName}
+          />
           <button type="submit" onClick={this.handleSubmit}>></button>
         </form>
       </div>
