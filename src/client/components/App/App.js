@@ -10,9 +10,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       // page: 'welcome',
-      page: 'addPill',
-      // page: 'pillbox',
-      pills: {},
+      // page: 'addPill',
+      page: 'pillbox',
+      pills: [],
     };
   }
 
@@ -26,7 +26,6 @@ export default class App extends Component {
   handleAddPillClick = (e) => {
     e.preventDefault();
     console.log('add pill!');
-    // this.props.history.push('/newpill');
     this.setState({
       page: 'addPill'
     });
@@ -35,24 +34,21 @@ export default class App extends Component {
   handlePillboxClick = (e) => {
     e.preventDefault();
     console.log('see pillbox!');
-    // this.props.history.push('/mypillbox');
     this.setState({
       page: 'pillbox'
     });
   }
 
-  // this.setState({prevState => {}})
-  getPillName = (e) => {
-    e.preventDefault();
-    console.log('new pill submitted!');
-    e.currentTarget.reset();
-  }
-
-  pillName = (e) => {
-    console.log(e.target.value);
+  addPill = (pill) => {
+    this.setState((currentState) => {
+      currentState.pills.push(pill);
+      return currentState;
+    });
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div>
         <Logo />
@@ -67,8 +63,7 @@ export default class App extends Component {
         {this.state.page === 'addPill' && (
           <div>
             <PillSearch
-              getPillName={this.getPillName}
-              pillName={this.pillName}
+              addPill={this.addPill}
             />
           </div>
         )}
@@ -76,6 +71,7 @@ export default class App extends Component {
           <div>
             <MyPillbox
               addPillClick={this.handleAddPillClick}
+              pills={this.state.pills}
             />
           </div>
         )}
