@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddPillButton from '../AddPillButton/AddPillButton';
+// import AddPillButton from '../AddPillButton/AddPillButton';
 
 export default class MyPillbox extends Component {
   constructor(props) {
@@ -11,10 +11,14 @@ export default class MyPillbox extends Component {
     return (
       <div>
 
-        <div className="empty-pillbox-message">
+        {/* <div className="empty-pillbox-message">
           <h2>your pillbox is currently empty!</h2>
           <AddPillButton addPillClick={this.props.addPillClick} />
-        </div>
+        </div> */}
+
+        {this.props.pills.map((pill, i) => {
+          return <p key={i}>{pill.name}</p>;
+        })}
 
       </div>
     );
