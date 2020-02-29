@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import request from '../../helpers/request';
 // import AddPillButton from '../AddPillButton/AddPillButton';
 
 export default class MyPillbox extends Component {
   constructor(props) {
     super(props);
-    this.state = null;
+    this.state = {
+      pills: []
+    }
+  }
+
+  componentDidMount() {
+    this.getPills();
+  }
+
+  getPills = async () => {
+    const pills = await request.getPills();
+    this.setState({
+      pills
+    });
   }
 
   render() {
@@ -16,7 +30,7 @@ export default class MyPillbox extends Component {
           <AddPillButton addPillClick={this.props.addPillClick} />
         </div> */}
 
-        {this.props.pills.map((pill, i) => {
+        {this.state.pills.map((pill, i) => {
           return <p key={i}>{pill.name}</p>;
         })}
 
