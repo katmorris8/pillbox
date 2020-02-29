@@ -12,16 +12,8 @@ export default class App extends Component {
       // page: 'welcome',
       // page: 'addPill',
       page: 'pillbox',
-      pills: [],
     };
   }
-
-  // componentDidMount() {
-  //   fetch('/api/getUsername')
-  //     .then(res => res.json())
-  //     .then(user => this.setState({ username: user.username }));
-  // }
-  // remove username
 
   handleAddPillClick = (e) => {
     e.preventDefault();
@@ -71,7 +63,6 @@ export default class App extends Component {
           <div>
             <MyPillbox
               addPillClick={this.handleAddPillClick}
-              pills={this.state.pills}
             />
           </div>
         )}
