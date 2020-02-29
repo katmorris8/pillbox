@@ -4,5 +4,15 @@ export default {
   getPills: async () => {
     const response = await axios.get('/api/prescriptions');
     return response.data.prescriptions;
+  },
+  createPill: async ({ name }) => {
+    const response = await axios({
+      method: 'post',
+      url: '/api/prescriptions',
+      data: {
+        prescription: { name }
+      }
+    });
+    return response;
   }
 };
