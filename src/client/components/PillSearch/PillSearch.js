@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
+import request from '../../helpers/request';
 
 export default class PillSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = this.initialState();
+  }
+
+  initialState = () => {
+    return {
       name: ''
     };
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    this.props.addPill(this.state);
-    this.setState({
-      name: ''
-    });
+    const response = await request.createPill({ name: this.state.name });
+    if (response.status === 200) {
+      this.setState(
+        this.initialState()
+      );
+    }
   }
 
   pillName = (e) => {
