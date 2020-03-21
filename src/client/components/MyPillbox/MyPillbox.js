@@ -7,7 +7,7 @@ export default class MyPillbox extends Component {
     super(props);
     this.state = {
       pills: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -16,6 +16,7 @@ export default class MyPillbox extends Component {
 
   getPills = async () => {
     const pills = await request.getPills();
+    console.log(pills);
     this.setState({
       pills
     });

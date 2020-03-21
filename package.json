@@ -8,7 +8,8 @@
     "start": "npm run build && node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "db": "psql -f ./src/server/config/db/createDb.sql && node ./src/server/config/db/resetDb.js && node ./src/server/config/db/seed.js"
   },
   "author": "Sandeep Raveesh",
   "license": "ISC",
