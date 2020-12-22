@@ -1,10 +1,14 @@
-const prescriptionModel = {
-  all: () => {
-    return { prescriptions: [{name: 'advil'}, {name: 'preparation h'}] }
-  },
-  create: (params) => {
-    return {status: 'okay', prescription: {id: 1, name: params.name}}
-  }
-};
+const Sequelize = require('sequelize');
 
-module.exports = prescriptionModel;
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/pillbox_db', {
+  dialect: 'progres'
+});
+
+const Prescription = sequelize.define('prescription', {
+  name: Sequelize.TEXT
+});
+
+module.exports = {
+  Prescription,
+  sequelize
+};
