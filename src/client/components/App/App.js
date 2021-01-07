@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './style.css';
 import { Logo } from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import PillSearch from '../PillSearch/PillSearch';
 import MyPillbox from '../MyPillbox/MyPillbox';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // page: 'welcome',
-      // page: 'addPill',
-      page: 'pillbox',
-    };
-  }
+const App = () => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     // page: 'welcome',
+  //     // page: 'addPill',
+  //     page: 'pillbox',
+  //   };
+  // }
+
+  const [{page, pills}, setState] = useState({
+    page: 'welcome',
+    pills: []
+  })
 
   handleAddPillClick = (e) => {
     e.preventDefault();
     console.log('add pill!');
-    this.setState({
+    setState({
       page: 'addPill'
     });
   }
@@ -26,43 +31,43 @@ export default class App extends Component {
   handlePillboxClick = (e) => {
     e.preventDefault();
     console.log('see pillbox!');
-    this.setState({
+    setState({
       page: 'pillbox'
     });
   }
 
   addPill = (pill) => {
-    this.setState((currentState) => {
+    setState((currentState) => {
       currentState.pills.push(pill);
       return currentState;
     });
   }
 
   render() {
-    console.log(this.state);
+    console.log(state);
 
     return (
       <div>
         <Logo />
-        {this.state.page === 'welcome' && (
+        {state.page === 'welcome' && (
           <div>
             <WelcomePage
-              addPillClick={this.handleAddPillClick}
-              viewPillboxClick={this.handlePillboxClick}
+              addPillClick={handleAddPillClick}
+              viewPillboxClick={handlePillboxClick}
             />
           </div>
         )}
-        {this.state.page === 'addPill' && (
+        {state.page === 'addPill' && (
           <div>
             <PillSearch
-              addPill={this.addPill}
+              addPill={addPill}
             />
           </div>
         )}
-        {this.state.page === 'pillbox' && (
+        {state.page === 'pillbox' && (
           <div>
             <MyPillbox
-              addPillClick={this.handleAddPillClick}
+              addPillClick={handleAddPillClick}
             />
           </div>
         )}
@@ -70,3 +75,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
