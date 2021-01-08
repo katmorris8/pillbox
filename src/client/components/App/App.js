@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { Logo } from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
@@ -11,26 +11,23 @@ const App = () => {
     pills: [],
   });
 
-  const handleAddPillClick = (e) => {
-    e.preventDefault();
-    console.log('add pill!');
+  const handleAddPillClick = () => {
     setState({
       page: 'addPill',
     });
   };
 
-  const handlePillboxClick = (e) => {
-    e.preventDefault();
-    console.log('see pillbox!');
+  const handlePillboxClick = () => {
     setState({
       page: 'pillbox',
     });
   };
 
   const addPill = (pill) => {
-    setState(currentState => {
-      currentState.pills.push(pill);
-      return currentState;
+    const pillsState = [...pills];
+    pillsState.push(pill);
+    setState({
+      pills: pillsState
     });
   };
 
