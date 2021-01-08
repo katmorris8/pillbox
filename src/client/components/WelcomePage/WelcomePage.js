@@ -17,14 +17,12 @@ const WelcomePage = ({ click }) => (
   </div>
 );
 
-// WelcomePage.defaultProps = {
-//   addPillClick: 'Cannot get add pills',
-//   viewPillboxClick: 'Cannot view pillbox',
-// };
+WelcomePage.defaultProps = {
+  click: 'Try again',
+};
 
-// WelcomePage.propTypes = {
-//   addPillClick: PropTypes.func,
-//   viewPillboxClick: PropTypes.func,
-// };
+WelcomePage.propTypes = {
+  click: PropTypes.func,
+};
 
 export default WelcomePage;
