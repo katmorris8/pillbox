@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
 import ButtonMain from '../ButtonMain/ButtonMain';
 
-export default class PillboxButton extends Component {
-  constructor(props) {
-    super(props);
-    this.btnText = 'x';
-  }
+const PillboxButton = ({ viewPillboxClick }) => (
+  <div>
+    <ButtonMain text="x" onClick={viewPillboxClick} />
+    <p>view my pillbox</p>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <ButtonMain text={this.btnText} onClick={this.props.viewPillboxClick} />
-        <p>view my pillbox</p>
-      </div>
-    );
-  }
-}
+PillboxButton.defaultProps = {
+  viewPillboxClick: 'Cannot view pillbox',
+};
+
+PillboxButton.propTypes = {
+  viewPillboxClick: PropTypes.func,
+};
+
+export default PillboxButton;

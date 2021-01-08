@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { Logo } from '../Logo/Logo';
+import Logo from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import PillSearch from '../PillSearch/PillSearch';
 import MyPillbox from '../MyPillbox/MyPillbox';
@@ -49,7 +49,7 @@ const App = () => {
       )}
       {page === 'pillbox' && (
         <div>
-          <MyPillbox addPillClick={handleAddPillClick} />
+          <MyPillbox pills={pills} />
         </div>
       )}
     </div>

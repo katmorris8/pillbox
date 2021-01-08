@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
 
-export default class ButtonMain extends Component {
-  constructor(props) {
-    super(props);
-    this.state = null;
-  }
+const ButtonMain = ({ text, onClick }) => (
+  <div>
+    <button type="button" className="button" onClick={onClick}>
+      {text}
+    </button>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <button type="button" className="button" onClick={this.props.onClick}>{this.props.text}</button>
-      </div>
-    );
-  }
-}
+ButtonMain.defaultProps = {
+  text: '∙',
+  onClick: 'Try again later',
+};
+
+ButtonMain.propTypes = {
+  text: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+export default ButtonMain;

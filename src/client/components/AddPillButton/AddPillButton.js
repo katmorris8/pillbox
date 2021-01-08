@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
 import ButtonMain from '../ButtonMain/ButtonMain';
 
-export default class AddPillButton extends Component {
-  constructor(props) {
-    super(props);
-    this.btnText = '+';
-  }
+const AddPillButton = ({ addPillClick }) => (
+  <div>
+    <ButtonMain text="+" onClick={addPillClick} />
+    <p>load my pillbox with a new Rx</p>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <ButtonMain text={this.btnText} onClick={this.props.addPillClick} />
-        <p>load my pillbox with a new Rx</p>
-      </div>
-    );
-  }
-}
+AddPillButton.defaultProps = {
+  addPillClick: 'Cannot get add pills',
+};
+
+AddPillButton.propTypes = {
+  addPillClick: PropTypes.func,
+};
+
+export default AddPillButton;

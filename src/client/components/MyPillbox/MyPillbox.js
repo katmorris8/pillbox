@@ -1,41 +1,20 @@
-import React, { Component } from 'react';
-import request from '../../helpers/request';
-// import AddPillButton from '../AddPillButton/AddPillButton';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class MyPillbox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pills: []
-    };
-  }
+const MyPillbox = ({ pills }) => (
+  <div>
+    {pills.map((pill, i) => (
+      <p key={i}>{pill.name}</p>
+    ))}
+  </div>
+);
 
-  componentDidMount() {
-    this.getPills();
-  }
+MyPillbox.defaultProps = {
+  pills: [],
+};
 
-  getPills = async () => {
-    const pills = await request.getPills();
-    console.log(pills);
-    this.setState({
-      pills
-    });
-  }
+MyPillbox.propTypes = {
+  pills: PropTypes.arrayOf([PropTypes.string]),
+};
 
-  render() {
-    return (
-      <div>
-
-        {/* <div className="empty-pillbox-message">
-          <h2>your pillbox is currently empty!</h2>
-          <AddPillButton addPillClick={this.props.addPillClick} />
-        </div> */}
-
-        {this.state.pills.map((pill, i) => {
-          return <p key={i}>{pill.name}</p>;
-        })}
-
-      </div>
-    );
-  }
-}
+export default MyPillbox;
