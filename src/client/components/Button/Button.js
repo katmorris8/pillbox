@@ -10,12 +10,14 @@ const Button = ({ text, page, click }) => (
 
 Button.defaultProps = {
   text: '∙',
-  onClick: 'Try again later',
+  page: 'welcome',
+  click: 'Try again later',
 };
 
 Button.propTypes = {
   text: PropTypes.string,
-  onClick: PropTypes.func,
+  page: PropTypes.string,
+  click: PropTypes.func,
 };
 
 export default Button;
