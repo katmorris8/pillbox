@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const ButtonMain = ({ text, onClick }) => (
+const Button = ({ text, onClick }) => (
   <div>
     <button type="button" className="button" onClick={onClick}>
       {text}
@@ -10,14 +10,14 @@ const ButtonMain = ({ text, onClick }) => (
   </div>
 );
 
-ButtonMain.defaultProps = {
+Button.defaultProps = {
   text: '∙',
   onClick: 'Try again later',
 };
 
-ButtonMain.propTypes = {
+Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
 };
 
-export default ButtonMain;
+export default Button;
