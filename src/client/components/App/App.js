@@ -49,7 +49,7 @@ const App = () => {
       )}
       {page === 'pillbox' && (
         <div>
-          <MyPillbox pills={pills} addPillClick={handleAddPillClick} />
+          <MyPillbox pills={pills} />
         </div>
       )}
     </div>
