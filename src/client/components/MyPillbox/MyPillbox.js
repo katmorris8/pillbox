@@ -1,20 +1,20 @@
 import React from 'react';
-// import request from '../../helpers/request';
+import PropTypes from 'prop-types';
 
-// getPills = async () => {
-//   const pills = await request.getPills();
-//   console.log(pills);
-//   this.setState({
-//     pills,
-//   });
-// };
-
-const MyPillbox = ({ pills, addPillClick }) => (
+const MyPillbox = ({ pills }) => (
   <div>
     {pills.map((pill, i) => (
       <p key={i}>{pill.name}</p>
     ))}
   </div>
 );
+
+MyPillbox.defaultProps = {
+  pills: [],
+};
+
+MyPillbox.propTypes = {
+  pills: PropTypes.arrayOf([PropTypes.string]),
+};
 
 export default MyPillbox;
