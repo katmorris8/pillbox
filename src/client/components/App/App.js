@@ -6,40 +6,31 @@ import PillSearch from '../PillSearch/PillSearch';
 import MyPillbox from '../MyPillbox/MyPillbox';
 
 const App = () => {
+  // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
+  // const pages = ['welcome', 'addPill', 'pillbox'];
   const [{ page, pills }, setState] = useState({
     page: 'welcome',
     pills: [],
   });
 
-  const handleAddPillClick = () => {
-    setState({
-      page: 'addPill',
-    });
-  };
-
-  const handlePillboxClick = () => {
-    setState({
-      page: 'pillbox',
-    });
+  const setPage = (name) => {
+    setState({ ...page, ...pills, page: name });
   };
 
   const addPill = (pill) => {
     const pillsState = [...pills];
     pillsState.push(pill);
     setState({
-      pills: pillsState
+      pills: pillsState,
     });
   };
 
   return (
     <div>
-      <Logo />
+      <Logo page="welcome" click={setPage} />
       {page === 'welcome' && (
         <div>
-          <WelcomePage
-            addPillClick={handleAddPillClick}
-            viewPillboxClick={handlePillboxClick}
-          />
+          <WelcomePage click={setPage} />
         </div>
       )}
       {page === 'addPill' && (

@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
-import AddPillButton from '../AddPillButton/AddPillButton';
-import PillboxButton from '../PillboxButton/PillboxButton';
+import Button from '../Button/Button';
 
-const WelcomePage = ({ addPillClick, viewPillboxClick }) => (
+const WelcomePage = ({ click }) => (
   <div>
     <h1>welcome to pillbox</h1>
-    <AddPillButton addPillClick={addPillClick} />
-    <PillboxButton viewPillboxClick={viewPillboxClick} />
+    <div>
+      <Button text="+" page="addPill" click={click} />
+      <p>load my pillbox with a new Rx</p>
+    </div>
+    <div>
+      <Button text="x" page="pillbox" click={click} />
+      <p>view my pillbox</p>
+    </div>
   </div>
 );
 
 WelcomePage.defaultProps = {
-  addPillClick: 'Cannot get add pills',
-  viewPillboxClick: 'Cannot view pillbox',
+  click: 'Try again',
 };
 
 WelcomePage.propTypes = {
-  addPillClick: PropTypes.func,
-  viewPillboxClick: PropTypes.func,
+  click: PropTypes.func,
 };
 
 export default WelcomePage;
