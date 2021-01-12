@@ -4,6 +4,7 @@ import Logo from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import PillSearch from '../PillSearch/PillSearch';
 import MyPillbox from '../MyPillbox/MyPillbox';
+import request from '../../helpers/request';
 
 const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
@@ -23,6 +24,12 @@ const App = () => {
     setState({
       pills: pillsState,
     });
+  };
+
+  const getPills = async () => {
+    const pillsDb = await request.getPills();
+    console.log(pillsDb);
+    setState({ ...page, pills: pillsDb });
   };
 
   return (
