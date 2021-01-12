@@ -15,7 +15,7 @@ const App = () => {
   });
 
   const setPage = (name) => {
-    setState({ ...page, ...pills, page: name });
+    setState({ pills, page: name });
   };
 
   const addPill = (pill) => {
@@ -28,8 +28,7 @@ const App = () => {
 
   const getPills = async () => {
     const pillsDb = await request.getPills();
-    console.log(pillsDb);
-    setState({ ...page, pills: pillsDb });
+    setState({ page, pills: [...pills, ...pillsDb] });
   };
 
   return (
