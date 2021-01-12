@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import Logo from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
@@ -26,10 +26,17 @@ const App = () => {
     });
   };
 
-  const getPills = async () => {
-    const pillsDb = await request.getPills();
-    setState({ page, pills: [...pills, ...pillsDb] });
-  };
+  useEffect(() => {
+    if (page === 'pillbox') {
+      const getPills = async () => {
+        console.log('running');
+        const pillsDb = await request.getPills();
+        console.log(pillsDb);
+        setState({ page, pills: [...pills, ...pillsDb] });
+      };
+      getPills();
+    }
+  }, [page]);
 
   return (
     <div>
