@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import Logo from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import PillSearch from '../PillSearch/PillSearch';
 import MyPillbox from '../MyPillbox/MyPillbox';
+import request from '../../helpers/request';
 
 const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
@@ -14,7 +15,7 @@ const App = () => {
   });
 
   const setPage = (name) => {
-    setState({ ...page, ...pills, page: name });
+    setState({ pills, page: name });
   };
 
   const addPill = (pill) => {
@@ -24,6 +25,18 @@ const App = () => {
       pills: pillsState,
     });
   };
+
+  useEffect(() => {
+    if (page === 'pillbox') {
+      const getPills = async () => {
+        console.log('running');
+        const pillsDb = await request.getPills();
+        console.log(pillsDb);
+        setState({ page, pills: [...pills, ...pillsDb] });
+      };
+      getPills();
+    }
+  }, [page]);
 
   return (
     <div>
