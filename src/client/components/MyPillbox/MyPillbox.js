@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const MyPillbox = ({ pills }) => (
   <div>
-    {pills.map((pill, i) => (
-      <p key={i}>{pill}</p>
+    {pills.map(pill => (
+      <p key={pill.id}>{pill.name}</p>
     ))}
   </div>
 );
