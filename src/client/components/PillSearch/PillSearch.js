@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import request from '../../helpers/request';
 
-const PillSearch = () => {
+const PillSearch = ({ setPage }) => {
   // constructor(props) {
   //   super(props);
   //   this.state = this.initialState();
@@ -33,6 +33,7 @@ const PillSearch = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('submitted', state);
+    setPage('pillbox');
   };
 
   return (
