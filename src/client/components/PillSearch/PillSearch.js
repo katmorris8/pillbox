@@ -1,28 +1,7 @@
 import React, { useState } from 'react';
-// import request from '../../helpers/request';
+import request from '../../helpers/request';
 
 const PillSearch = ({ setPage }) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = this.initialState();
-  // }
-
-  // initialState = () => {
-  //   return {
-  //     name: ''
-  //   };
-  // }
-
-  // handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const response = await request.createPill({ name: this.state.name });
-  //   if (response.status === 200) {
-  //     this.setState(
-  //       this.initialState()
-  //     );
-  //   }
-  // }
-
   const [state, setState] = useState('');
 
   const handleChange = (e) => {
@@ -30,9 +9,13 @@ const PillSearch = ({ setPage }) => {
     setState(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('submitted', state);
+    const response = await request.createPill({ name: state });
+    if (response.status === 200) {
+      setState('');
+    }
     setPage('pillbox');
   };
 
