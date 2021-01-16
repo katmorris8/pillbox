@@ -5,13 +5,11 @@ const PillSearch = ({ setPage }) => {
   const [state, setState] = useState('');
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setState(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submitted', state);
     const response = await request.createPill({ name: state });
     if (response.status === 200) {
       setState('');
