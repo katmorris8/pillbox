@@ -18,21 +18,11 @@ const App = () => {
     setState({ pills, page: name });
   };
 
-  const addPill = (pill) => {
-    const pillsState = [...pills];
-    pillsState.push(pill);
-    setState({
-      pills: pillsState,
-    });
-  };
-
   useEffect(() => {
     if (page === 'pillbox') {
       const getPills = async () => {
-        console.log('running');
         const pillsDb = await request.getPills();
-        console.log(pillsDb);
-        setState({ page, pills: [...pills, ...pillsDb] });
+        setState({ page, pills: pillsDb });
       };
       getPills();
     }
@@ -48,7 +38,7 @@ const App = () => {
       )}
       {page === 'addPill' && (
         <div>
-          <PillSearch addPill={addPill} />
+          <PillSearch setPage={setPage} />
         </div>
       )}
       {page === 'pillbox' && (

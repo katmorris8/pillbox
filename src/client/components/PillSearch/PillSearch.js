@@ -1,47 +1,37 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import request from '../../helpers/request';
 
-export default class PillSearch extends Component {
-  constructor(props) {
-    super(props);
-    this.state = this.initialState();
-  }
+const PillSearch = ({ setPage }) => {
+  const [state, setState] = useState('');
 
-  initialState = () => {
-    return {
-      name: ''
-    };
-  }
+  const handleChange = (e) => {
+    setState(e.target.value);
+  };
 
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await request.createPill({ name: this.state.name });
+    const response = await request.createPill({ name: state });
     if (response.status === 200) {
-      this.setState(
-        this.initialState()
-      );
+      setState('');
     }
-  }
+    setPage('pillbox');
+  };
 
-  pillName = (e) => {
-    this.setState({
-      name: e.target.value
-    });
-  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Pill name..."
+          onChange={handleChange}
+          value={state}
+        />
+        <button type="submit" onClick={handleSubmit}>
+          &gt;
+        </button>
+      </form>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Pill name..."
-            onChange={this.pillName}
-            value={this.state.name}
-          />
-          <button type="submit" onClick={this.handleSubmit}>></button>
-        </form>
-      </div>
-    );
-  }
-}
+export default PillSearch;
