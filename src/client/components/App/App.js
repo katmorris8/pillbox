@@ -19,6 +19,12 @@ const App = () => {
   };
 
   useEffect(() => {
+    if (pills.isEmpty) {
+      setPage('welcome');
+    } else {
+      setPage('pillbox');
+    }
+
     if (page === 'pillbox') {
       const getPills = async () => {
         const pillsDb = await request.getPills();
