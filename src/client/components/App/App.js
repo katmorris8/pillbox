@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import './style.css';
 import Logo from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
@@ -10,10 +10,13 @@ import Button from '../Button/Button';
 const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
   // const pages = ['welcome', 'addPill', 'pillbox'];
-  const [{ pills, page }, setState] = useState({
-    pills: [],
-    page: 'welcome',
-  });
+
+  // const [{ pills, page }, setState] = useState({
+  //   pills: [],
+  //   page: 'welcome',
+  // });
+
+  const [{pills, page}, dispatch] = useReducer(reducer, initialState)
 
   const setPage = (name) => {
     setState({ pills, page: name });
