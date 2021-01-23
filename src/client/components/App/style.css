@@ -7,18 +7,8 @@ body {
   box-sizing: border-box;
 }
 
-.nav-bar {
-  width: 100%;
-  position: absolute;
-  bottom: 1rem;
+.top-nav {
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #cccccc;
-  padding-top: 1rem;
-}
-
-.nav-bar a {
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: #333333;
+  align-items: center;
 }
