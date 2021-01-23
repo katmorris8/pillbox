@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const Logo = ({ page, click }) => (
-  <button type="button" onClick={() => click(page)}>
+  <button className="logo-button" type="button" onClick={() => click(page)}>
     <h1 className="logo">Pillbox</h1>
   </button>
 );
