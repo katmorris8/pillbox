@@ -14,6 +14,9 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'setPage': {
+      return { ...state, page: action.page };
+    }
     default: {
       throw new Error(`Unsupported action type: ${action.type}`);
     }
