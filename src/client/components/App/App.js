@@ -43,7 +43,8 @@ const App = () => {
     if (page === 'pillbox') {
       const getPills = async () => {
         const pillsDb = await request.getPills();
-        setState({ page, pills: pillsDb });
+        // setState({ page, pills: pillsDb });
+        dispatch({ type: 'addPills', payload: pillsDb });
       };
       getPills();
     }
