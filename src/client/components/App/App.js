@@ -17,7 +17,7 @@ const reducer = (state, action) => {
     case 'setPage': {
       return { ...state, page: action.payload };
     }
-    case 'addPills': {
+    case 'setPills': {
       return { ...state, pills: action.payload };
     }
     default: {
@@ -47,7 +47,7 @@ const App = () => {
       const getPills = async () => {
         const pillsDb = await request.getPills();
         // setState({ page, pills: pillsDb });
-        dispatch({ type: 'addPills', payload: pillsDb });
+        dispatch({ type: 'setPills', payload: pillsDb });
       };
       getPills();
     }
