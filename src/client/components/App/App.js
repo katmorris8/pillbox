@@ -17,6 +17,9 @@ const reducer = (state, action) => {
     case 'setPage': {
       return { ...state, page: action.payload };
     }
+    case 'addPills': {
+      return { ...state, pills: action.payload };
+    }
     default: {
       throw new Error(`Unsupported action type: ${action.type}`);
     }
