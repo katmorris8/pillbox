@@ -48,7 +48,7 @@ const App = () => {
 
   return (
     <div>
-      <nav>
+      <nav className="top-nav">
         <Logo page="welcome" click={setPage} />
         <Button text="+" page="addPill" click={setPage} />
       </nav>
