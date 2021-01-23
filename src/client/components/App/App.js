@@ -9,8 +9,16 @@ import Button from '../Button/Button';
 
 const initialState = {
   pills: [],
-  page: 'welcome'
-}
+  page: 'welcome',
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    default: {
+      throw new Error(`Unsupported action type: ${action.type}`);
+    }
+  }
+};
 
 const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
@@ -21,7 +29,7 @@ const App = () => {
   //   page: 'welcome',
   // });
 
-  const [{pills, page}, dispatch] = useReducer(reducer, initialState)
+  const [{ pills, page }, dispatch] = useReducer(reducer, initialState);
 
   const setPage = (name) => {
     setState({ pills, page: name });
