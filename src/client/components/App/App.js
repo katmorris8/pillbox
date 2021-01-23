@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import './style.css';
 import Logo from '../Logo/Logo';
 import WelcomePage from '../WelcomePage/WelcomePage';
@@ -30,15 +30,9 @@ const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
   // const pages = ['welcome', 'addPill', 'pillbox'];
 
-  // const [{ pills, page }, setState] = useState({
-  //   pills: [],
-  //   page: 'welcome',
-  // });
-
   const [{ pills, page }, dispatch] = useReducer(reducer, initialState);
 
   const setPage = (name) => {
-    // setState({ pills, page: name });
     dispatch({ type: 'setPage', payload: name });
   };
 
@@ -46,7 +40,6 @@ const App = () => {
     if (page === 'pillbox') {
       const getPills = async () => {
         const pillsDb = await request.getPills();
-        // setState({ page, pills: pillsDb });
         dispatch({ type: 'setPills', payload: pillsDb });
       };
       getPills();
