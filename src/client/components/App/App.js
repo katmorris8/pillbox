@@ -7,6 +7,11 @@ import MyPillbox from '../MyPillbox/MyPillbox';
 import request from '../../helpers/request';
 import Button from '../Button/Button';
 
+const initialState = {
+  pills: [],
+  page: 'welcome'
+}
+
 const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
   // const pages = ['welcome', 'addPill', 'pillbox'];
