@@ -15,7 +15,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'setPage': {
-      return { ...state, page: action.page };
+      return { ...state, page: action.name };
     }
     default: {
       throw new Error(`Unsupported action type: ${action.type}`);
@@ -35,7 +35,8 @@ const App = () => {
   const [{ pills, page }, dispatch] = useReducer(reducer, initialState);
 
   const setPage = (name) => {
-    setState({ pills, page: name });
+    // setState({ pills, page: name });
+    dispatch({ type: 'setPage', name });
   };
 
   useEffect(() => {
