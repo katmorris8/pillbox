@@ -2,10 +2,13 @@ const { Prescription } = require('../models/prescription');
 
 const prescriptionsController = {
   index: async () => {
-    const prescription = await Prescription.findAll({ attributes: ['id', 'name'] });
-    return prescription;
+    const prescriptions = await Prescription.findAll({ attributes: ['id', 'name'] });
+    return prescriptions;
   },
-  create: params => Prescription.create(params.prescription)
+  create: async (params) => {
+    const prescription = await Prescription.create(params.prescription);
+    return prescription;
+  }
 };
 
 module.exports = prescriptionsController;
