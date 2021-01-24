@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 const MyPillbox = ({ pills }) => (
   <div>
     {pills.map(pill => (
-      <p key={pill.id}>{pill.name}</p>
+      <div key={pill.id} className="pill">
+        <button type="button">x</button>
+        <p>{pill.name}</p>
+      </div>
     ))}
   </div>
 );
