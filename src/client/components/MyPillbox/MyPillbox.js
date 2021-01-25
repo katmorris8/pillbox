@@ -4,8 +4,8 @@ import request from '../../helpers/request';
 import './style.css';
 
 const MyPillbox = ({ pills }) => {
-  const handleClick = (id) => {
-    console.log(id);
+  const handleClick = async (id) => {
+    await request.destoryPill({ id });
   };
 
   return (
