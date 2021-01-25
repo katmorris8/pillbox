@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import request from '../../helpers/request';
 import './style.css';
 
 const MyPillbox = ({ pills }) => {
-  const [state, setState] = useState('');
+  const handleClick = (id) => {
+    console.log(id);
+  };
 
   return (
-    <div>
+    <ul>
       {pills.map(pill => (
-        <div key={pill.id} className="pill">
-          <button type="button">x</button>
+        <li key={pill.id} className="pill">
+          <button onClick={() => handleClick(pill.id)} type="button">x</button>
           <p>{pill.name}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
