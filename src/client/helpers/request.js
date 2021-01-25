@@ -14,5 +14,15 @@ export default {
       }
     });
     return response;
+  },
+  destoryPill: async ({ id }) => {
+    const response = await axios({
+      method: 'delete',
+      url: 'api/prescriptions',
+      data: {
+        prescription: { id }
+      }
+    });
+    return response;
   }
 };
