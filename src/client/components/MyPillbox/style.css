@@ -1,0 +1,11 @@
+.pill {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.pill p {
+  padding: 0 2rem;
+}
