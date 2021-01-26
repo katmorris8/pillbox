@@ -8,6 +8,10 @@ const prescriptionsController = {
   create: async (params) => {
     const prescription = await Prescription.create(params.prescription);
     return prescription;
+  },
+  destroy: async (params) => {
+    const prescription = await Prescription.destroy({ where: { id: params.prescription.id } });
+    return prescription;
   }
 };
 
