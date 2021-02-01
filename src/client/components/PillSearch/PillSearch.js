@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import request from '../../helpers/request';
 
 const PillSearch = ({ setPage }) => {
@@ -32,6 +33,14 @@ const PillSearch = ({ setPage }) => {
       </form>
     </div>
   );
+};
+
+PillSearch.defaultProps = {
+  setPage: 'Try again later',
+};
+
+PillSearch.propTypes = {
+  setPage: PropTypes.func,
 };
 
 export default PillSearch;
