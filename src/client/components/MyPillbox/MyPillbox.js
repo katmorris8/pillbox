@@ -25,7 +25,7 @@ MyPillbox.defaultProps = {
 };
 
 MyPillbox.propTypes = {
-  pills: PropTypes.arrayOf([PropTypes.string]),
+  pills: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default MyPillbox;
