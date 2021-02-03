@@ -9,14 +9,17 @@ const MyPillbox = ({ pills }) => {
   };
 
   return (
-    <ul>
-      {pills.map(pill => (
-        <li key={pill.id} className="pill">
-          <button onClick={() => handleClick(pill.id)} type="button">x</button>
-          <p>{pill.name}</p>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <button type="button">Edit</button>
+      <ul>
+        {pills.map(pill => (
+          <li key={pill.id} className="pill">
+            <button onClick={() => handleClick(pill.id)} type="button">x</button>
+            <p>{pill.name}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
