@@ -28,7 +28,7 @@ const reducer = (state, action) => {
 
 const App = () => {
   // const buttonTypes = ['navBtn', 'logoBtn', 'welcomeBtn']
-  // const pages = ['welcome', 'addPill', 'pillbox'];
+  // const pages = ['welcome', 'addPill', 'pillbox', 'edit'];
 
   const [{ pills, page }, dispatch] = useReducer(reducer, initialState);
 
@@ -64,7 +64,7 @@ const App = () => {
       )}
       {page === 'pillbox' && (
         <div>
-          <MyPillbox pills={pills} />
+          <MyPillbox pills={pills} setPage={setPage} />
         </div>
       )}
     </div>
