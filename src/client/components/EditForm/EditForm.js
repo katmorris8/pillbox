@@ -1,5 +1,10 @@
 import React from 'react';
+import Button from '../Button/Button';
 
-const EditForm = () => <h1>edit</h1>;
+const EditForm = ({ setPage }) => (
+  <div>
+    <Button text="&larr;" page="pillbox" click={setPage} />
+  </div>
+);
 
 export default EditForm;
