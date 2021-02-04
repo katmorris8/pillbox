@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import request from '../../helpers/request';
 import './style.css';
 
-const MyPillbox = ({ pills }) => {
+const MyPillbox = ({ pills, setPage }) => {
   const handleClick = async (id) => {
     await request.destoryPill({ id });
   };
 
   return (
     <div>
-      <button type="button">Edit</button>
+      <button type="button" onClick={() => setPage('edit')}>Edit</button>
       <ul>
         {pills.map(pill => (
           <li key={pill.id} className="pill">
