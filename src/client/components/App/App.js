@@ -6,6 +6,7 @@ import PillSearch from '../PillSearch/PillSearch';
 import MyPillbox from '../MyPillbox/MyPillbox';
 import request from '../../helpers/request';
 import Button from '../Button/Button';
+import EditForm from '../EditForm/EditForm';
 
 const initialState = {
   pills: [],
@@ -65,6 +66,11 @@ const App = () => {
       {page === 'pillbox' && (
         <div>
           <MyPillbox pills={pills} setPage={setPage} />
+        </div>
+      )}
+      {page === 'edit' && (
+        <div>
+          <EditForm setPage={setPage} />
         </div>
       )}
     </div>
