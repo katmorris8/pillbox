@@ -7,3 +7,10 @@
   height: 4rem;
   background-color: #cccccc;
 }
+
+.back {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 10%;
+}
